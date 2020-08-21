@@ -1,19 +1,10 @@
 var down = require("./download")
 var fs = require('fs')
-var ffmpeg = require("./parcha")
 const MP3Cutter = require('mp3-cutter');
 const TelegramBot = require('node-telegram-bot-api');
 
 const token = '1237014736:AAGpauf2nvq1NsCFNfe7Vj3Y3gCB87sJH9E';
 const bot = new TelegramBot(token, {polling: true});
-
-bot.onText(/\/echo (.+)/, (msg, match) => {
-
-  const chatId = msg.chat.id;
-  const resp = match[1];
-
-  bot.sendMessage(chatId, resp);
-});
 
 bot.on('audio', (msg) => {
   const chatId = msg.chat.id;
